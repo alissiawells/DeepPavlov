@@ -110,10 +110,7 @@ class SiamesePredictor(Component):
             if len(context) == 2:
                 b = self.model._make_batch([context])
                 sc = self.model._predict_on_batch(b)[0]
-                if sc > 0.5:
-                    return ["This is a paraphrase."]
-                else:
-                    return ["This is not a paraphrase."]
+                return sc
             else:
                 return ["Please, provide two sentences separated by '&'."]
 
